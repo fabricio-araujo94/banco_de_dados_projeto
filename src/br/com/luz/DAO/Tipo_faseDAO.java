@@ -10,7 +10,7 @@ import br.com.luz.model.Tipo_fase;
 
 public class Tipo_faseDAO extends ConexaoDB {
 	private static final String INSERT_TIPO_FASE_SQL = "INSERT INTO tipo_fase (descricao) VALUES (?);";
-    private static final String SELECT_TIPO_FASE_BY_ID = "SELECT id, descricao FROM tipo_fase WHERE id = ?";
+    private static final String SELECT_TIPO_FASE_BY_ID = "SELECT id, descricao FROM tipo_fase WHERE id = ?;";
     private static final String SELECT_ALL_TIPO_FASE = "SELECT * FROM tipo_fase;";
     private static final String DELETE_TIPO_FASE_SQL = "DELETE FROM tipo_fase WHERE id = ?;";
     private static final String UPDATE_TIPO_FASE_SQL = "UPDATE tipo_fase SET descricao = ? WHERE id = ?;";
@@ -61,7 +61,7 @@ public class Tipo_faseDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Tipo_fase> selectAllTipo_fases() {
+    public List<Tipo_fase> selectAllTipo_fase() {
         List<Tipo_fase> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_FASE)) {
             ResultSet rs = preparedStatement.executeQuery();

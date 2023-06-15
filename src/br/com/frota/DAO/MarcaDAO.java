@@ -11,7 +11,7 @@ import java.util.List;
 public class MarcaDAO extends ConexaoDB {
 
     private static final String INSERT_MARCA_SQL = "INSERT INTO marca (descricao) VALUES (?);";
-    private static final String SELECT_MARCA_BY_ID = "SELECT id, descricao FROM marca WHERE id = ?";
+    private static final String SELECT_MARCA_BY_ID = "SELECT id, descricao FROM marca WHERE id = ?;";
     private static final String SELECT_ALL_MARCA = "SELECT * FROM marca;";
     private static final String DELETE_MARCA_SQL = "DELETE FROM marca WHERE id = ?;";
     private static final String UPDATE_MARCA_SQL = "UPDATE marca SET descricao = ? WHERE id = ?;";

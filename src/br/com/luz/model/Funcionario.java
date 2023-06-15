@@ -2,12 +2,12 @@ package br.com.luz.model;
 
 public class Funcionario extends GenericModel {
 	String codigo_funcional;
-	Pessoa pessoa;
+	int pessoa_id;
 	
-	public Funcionario(Integer id, String codigo_funcional, Pessoa pessoa) {
+	public Funcionario(Integer id, String codigo_funcional, int pessoa_id) {
 		super.setId(id);;
 		this.codigo_funcional = codigo_funcional;
-		this.pessoa = pessoa;
+		this.pessoa_id = pessoa_id;
 	}
 
 	public String getCodigo_funcional() {
@@ -18,12 +18,12 @@ public class Funcionario extends GenericModel {
 		this.codigo_funcional = codigo_funcional;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public int getPessoa_id() {
+		return pessoa_id;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setPessoa_id(int pessoa_id) {
+		this.pessoa_id = pessoa_id;
 	}
 	
 	

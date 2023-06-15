@@ -4,14 +4,14 @@ public class Pessoa extends GenericModel {
 	String nome;
 	String cpf;
 	String cnpj;
-	Tipo_pessoa tipo_pessoa;
+	int tipo_pessoa_id;
 	
-	public Pessoa(Integer id, String nome, String cpf, String cnpj, Tipo_pessoa tipo_pessoa) {
+	public Pessoa(Integer id, String nome, String cpf, String cnpj, int tipo_pessoa_id) {
 		super.setId(id);;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
-		this.tipo_pessoa = tipo_pessoa;
+		this.tipo_pessoa_id = tipo_pessoa_id;
 	}
 
 	public String getNome() {
@@ -38,12 +38,12 @@ public class Pessoa extends GenericModel {
 		this.cnpj = cnpj;
 	}
 
-	public Tipo_pessoa getTipo_pessoa() {
-		return tipo_pessoa;
+	public int getTipo_pessoa_id() {
+		return tipo_pessoa_id;
 	}
 
-	public void setTipo_pessoa_id(Tipo_pessoa tipo_pessoa) {
-		this.tipo_pessoa = tipo_pessoa;
+	public void setTipo_pessoa_id(int tipo_pessoa_id) {
+		this.tipo_pessoa_id = tipo_pessoa_id;
 	}
 	
 	
