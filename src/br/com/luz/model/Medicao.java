@@ -1,24 +1,24 @@
 package br.com.luz.model;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
 
 public class Medicao extends GenericModel {
 	String mes;
 	String ano;
-	Calendar data_medicao;
+	Timestamp data_medicao;
 	String consumo;
-	Medidor medidor;
-	Time_rota time_rota;
+	int medidor_id;
+	int time_rota_id;
 	
-	public Medicao(Integer id, String mes, String ano, Calendar data_medicao, String consumo, Medidor medidor,
-			Time_rota time_rota) {
+	public Medicao(Integer id, String mes, String ano, Timestamp data_medicao, String consumo, int medidor_id, 
+			int time_rota_id) {
 		super.setId(id);;
 		this.mes = mes;
 		this.ano = ano;
 		this.data_medicao = data_medicao;
 		this.consumo = consumo;
-		this.medidor = medidor;
-		this.time_rota = time_rota;
+		this.medidor_id = medidor_id;
+		this.time_rota_id = time_rota_id;
 	}
 
 	public String getMes() {
@@ -37,11 +37,11 @@ public class Medicao extends GenericModel {
 		this.ano = ano;
 	}
 
-	public Calendar getData_medicao() {
+	public Timestamp getData_medicao() {
 		return data_medicao;
 	}
 
-	public void setData_medicao(Calendar data_medicao) {
+	public void setData_medicao(Timestamp data_medicao) {
 		this.data_medicao = data_medicao;
 	}
 
@@ -53,20 +53,20 @@ public class Medicao extends GenericModel {
 		this.consumo = consumo;
 	}
 
-	public Medidor getMedidor() {
-		return medidor;
+	public int getMedidor_id() {
+		return medidor_id;
 	}
 
-	public void setMedidor(Medidor medidor) {
-		this.medidor = medidor;
+	public void setMedidor_id(int medidor_id) {
+		this.medidor_id = medidor_id;
 	}
 
-	public Time_rota getTime_rota() {
-		return time_rota;
+	public int getTime_rota_id() {
+		return time_rota_id;
 	}
 
-	public void setTime_rota(Time_rota time_rota) {
-		this.time_rota = time_rota;
+	public void setTime_rota_id(int time_rota_id) {
+		this.time_rota_id = time_rota_id;
 	}
 	
 	

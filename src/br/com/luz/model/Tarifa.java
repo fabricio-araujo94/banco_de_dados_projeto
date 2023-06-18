@@ -2,16 +2,16 @@ package br.com.luz.model;
 
 public class Tarifa extends GenericModel {
 	String taxa;
-	Classe classe;
+	int classe_id;
 	String lei;
 	String data_inicio;
 	String data_fim;
 	String aliquota_ICMS;
 	
-	public Tarifa(Integer id, String taxa, Classe classe, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
-		super.setId(id);;
+	public Tarifa(Integer id, String taxa, int classe_id, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
+		super.setId(id);
 		this.taxa = taxa;
-		this.classe = classe;
+		this.classe_id = classe_id;
 		this.lei = lei;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
@@ -26,12 +26,12 @@ public class Tarifa extends GenericModel {
 		this.taxa = taxa;
 	}
 
-	public Classe getClasse() {
-		return classe;
+	public int getClasse_id() {
+		return classe_id;
 	}
 
-	public void setClasse(Classe classe) {
-		this.classe = classe;
+	public void setClasse_id(int classe_id) {
+		this.classe_id = classe_id;
 	}
 
 	public String getLei() {

@@ -1,20 +1,20 @@
 package br.com.luz.model;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
 
 public class Tarefa_rota extends GenericModel {
 	String observacao;
-	Calendar data_inicio;
-	Calendar data_fim;
-	Rota rota;
+	Timestamp data_inicio;
+	Timestamp data_fim;
+	int rota_id;
 	
 	
-	public Tarefa_rota(Integer id, String observacao, Calendar data_inicio, Calendar data_fim, Rota rota) {
-		super.setId(id);;
+	public Tarefa_rota(Integer id, String observacao, Timestamp data_inicio, Timestamp data_fim, int rota_id) {
+		super.setId(id);
 		this.observacao = observacao;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
-		this.rota = rota;
+		this.rota_id = rota_id;
 	}
 
 
@@ -28,33 +28,33 @@ public class Tarefa_rota extends GenericModel {
 	}
 
 
-	public Calendar getData_inicio() {
+	public Timestamp getData_inicio() {
 		return data_inicio;
 	}
 
 
-	public void setData_inicio(Calendar data_inicio) {
+	public void setData_inicio(Timestamp data_inicio) {
 		this.data_inicio = data_inicio;
 	}
 
 
-	public Calendar getData_fim() {
+	public Timestamp getData_fim() {
 		return data_fim;
 	}
 
 
-	public void setData_fim(Calendar data_fim) {
+	public void setData_fim(Timestamp data_fim) {
 		this.data_fim = data_fim;
 	}
 
 
-	public Rota getRota() {
-		return rota;
+	public int getRota_id() {
+		return rota_id;
 	}
 
 
-	public void setRota(Rota rota) {
-		this.rota = rota;
+	public void setRota_id(int rota_id) {
+		this.rota_id = rota_id;
 	}
 	
 	

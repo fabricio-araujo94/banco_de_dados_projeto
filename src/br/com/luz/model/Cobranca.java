@@ -3,15 +3,15 @@ package br.com.luz.model;
 public class Cobranca extends GenericModel {
 	String mes_referencia;
 	String ano_referencia;
-	Tarifa tarifa;
-	Medicao medicao;
+	int tarifa_id;
+	int medicao_id;
 	
-	public Cobranca(Integer id, String mes_referencia, String ano_referencia, Tarifa tarifa, Medicao medicao) {
-		super.setId(id);;
+	public Cobranca(Integer id, String mes_referencia, String ano_referencia, int tarifa_id, int medicao_id) {
+		super.setId(id);
 		this.mes_referencia = mes_referencia;
 		this.ano_referencia = ano_referencia;
-		this.tarifa = tarifa;
-		this.medicao = medicao;
+		this.tarifa_id = tarifa_id;
+		this.medicao_id = medicao_id;
 	}
 
 	public String getMes_referencia() {
@@ -30,20 +30,20 @@ public class Cobranca extends GenericModel {
 		this.ano_referencia = ano_referencia;
 	}
 
-	public Tarifa getTarifa() {
-		return tarifa;
+	public int getTarifa_id() {
+		return tarifa_id;
 	}
 
-	public void setTarifa(Tarifa tarifa) {
-		this.tarifa = tarifa;
+	public void setTarifa_id(int tarifa_id) {
+		this.tarifa_id = tarifa_id;
 	}
 
-	public Medicao getMedicao() {
-		return medicao;
+	public int getMedicao_id() {
+		return medicao_id;
 	}
 
-	public void setMedicao(Medicao medicao) {
-		this.medicao = medicao;
+	public void setMedicao_id(int medicao_id) {
+		this.medicao_id = medicao_id;
 	}
 	
 }

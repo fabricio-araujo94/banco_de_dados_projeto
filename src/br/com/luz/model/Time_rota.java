@@ -1,29 +1,29 @@
 package br.com.luz.model;
 
 public class Time_rota extends GenericModel {
-	Funcionario funcionario;
-	Tarefa_rota tarefa_rota;
+	int funcionario_id;
+	int tarefa_rota_id;
 	
-	public Time_rota(Integer id, Funcionario funcionario, Tarefa_rota tarefa_rota) {
-		super.setId(id);;
-		this.funcionario = funcionario;
-		this.tarefa_rota = tarefa_rota;
+	public Time_rota(Integer id, int funcionario_id, int tarefa_rota_id) {
+		super.setId(id);
+		this.funcionario_id = funcionario_id;
+		this.tarefa_rota_id = tarefa_rota_id;
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public int getFuncionario_id() {
+		return funcionario_id;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setFuncionario_id(int funcionario_id) {
+		this.funcionario_id = funcionario_id;
 	}
 
-	public Tarefa_rota getTarefa_rota() {
-		return tarefa_rota;
+	public int getTarefa_rota_id() {
+		return tarefa_rota_id;
 	}
 
-	public void setTarefa_rota(Tarefa_rota tarefa_rota) {
-		this.tarefa_rota = tarefa_rota;
+	public void setTarefa_rota_id(int tarefa_rota_id) {
+		this.tarefa_rota_id = tarefa_rota_id;
 	}
 	
 	
