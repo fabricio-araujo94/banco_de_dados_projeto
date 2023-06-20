@@ -37,11 +37,11 @@ public class ContratoDAO extends ConexaoDB {
     public void insertContrato(Contrato entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_CONTRATO_SQL)) {
         	preparedStatement.setString(1, entidade.getDescricao());
-            preparedStatement.setTimestamp(2, entidade.getData_inicio());
-            preparedStatement.setTimestamp(3, entidade.getData_criacao());
-            preparedStatement.setInt(4, entidade.getMedidor_id());
-            preparedStatement.setInt(5, entidade.getClasse_id());
-            preparedStatement.setInt(6, entidade.getCliente_id());
+            preparedStatement.setTimestamp(2, entidade.getDataInicio());
+            preparedStatement.setTimestamp(3, entidade.getDataCriacao());
+            preparedStatement.setInt(4, entidade.getMedidorId());
+            preparedStatement.setInt(5, entidade.getClasseId());
+            preparedStatement.setInt(6, entidade.getClienteId());
             preparedStatement.setInt(7, entidade.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -59,12 +59,12 @@ public class ContratoDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                Timestamp data_inicio = rs.getTimestamp("data_inicio");
-                Timestamp data_criacao = rs.getTimestamp("data_criacao");
-                int medidor_id = rs.getInt("medidor_id");
-                int classe_id = rs.getInt("classe_id");
-                int cliente_id = rs.getInt("cliente_id");
-                entidade = new Contrato(id, descricao, data_inicio, data_criacao, medidor_id, classe_id, cliente_id);
+                Timestamp dataInicio = rs.getTimestamp("data_inicio");
+                Timestamp dataCriacao = rs.getTimestamp("data_criacao");
+                int medidorId = rs.getInt("medidor_id");
+                int classeId = rs.getInt("classe_id");
+                int clienteId = rs.getInt("cliente_id");
+                entidade = new Contrato(id, descricao, dataInicio, dataCriacao, medidorId, classeId, clienteId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -82,12 +82,12 @@ public class ContratoDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                Timestamp data_inicio = rs.getTimestamp("data_inicio");
-                Timestamp data_criacao = rs.getTimestamp("data_criacao");
-                int medidor_id = rs.getInt("medidor_id");
-                int classe_id = rs.getInt("classe_id");
-                int cliente_id = rs.getInt("cliente_id");
-                entidades.add(new Contrato(id, descricao, data_inicio, data_criacao, medidor_id, classe_id, cliente_id));
+                Timestamp dataInicio = rs.getTimestamp("data_inicio");
+                Timestamp dataCriacao = rs.getTimestamp("data_criacao");
+                int medidorId = rs.getInt("medidor_id");
+                int classeId = rs.getInt("classe_id");
+                int clienteId = rs.getInt("cliente_id");
+                entidades.add(new Contrato(id, descricao, dataInicio, dataCriacao, medidorId, classeId, clienteId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -109,11 +109,11 @@ public class ContratoDAO extends ConexaoDB {
     public boolean updateContrato(Contrato entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_CONTRATO_SQL)) {
         	statement.setString(1, entidade.getDescricao());
-            statement.setTimestamp(2, entidade.getData_inicio());
-            statement.setTimestamp(3, entidade.getData_criacao());
-            statement.setInt(4, entidade.getMedidor_id());
-            statement.setInt(5, entidade.getClasse_id());
-            statement.setInt(6, entidade.getCliente_id());
+            statement.setTimestamp(2, entidade.getDataInicio());
+            statement.setTimestamp(3, entidade.getDataCriacao());
+            statement.setInt(4, entidade.getMedidorId());
+            statement.setInt(5, entidade.getClasseId());
+            statement.setInt(6, entidade.getClienteId());
             statement.setInt(7, entidade.getId());
 
             return statement.executeUpdate() > 0;

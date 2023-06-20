@@ -37,7 +37,7 @@ public class PessoaDAO extends ConexaoDB {
             preparedStatement.setString(1, entidade.getNome());
             preparedStatement.setString(2, entidade.getCpf());
             preparedStatement.setString(3, entidade.getCnpj());
-            preparedStatement.setInt(4, entidade.getTipo_pessoa_id());
+            preparedStatement.setInt(4, entidade.getTipoPessoaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -56,8 +56,8 @@ public class PessoaDAO extends ConexaoDB {
                 String nome = rs.getString("nome");
                 String cpf = rs.getString("cpf");
                 String cnpj = rs.getString("cnpj");
-                int tipo_pessoa_id = rs.getInt("tipo_pessoa_id");
-                entidade = new Pessoa(id, nome, cpf, cnpj, tipo_pessoa_id);
+                int tipoPessoaId = rs.getInt("tipo_pessoa_id");
+                entidade = new Pessoa(id, nome, cpf, cnpj, tipoPessoaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -77,8 +77,8 @@ public class PessoaDAO extends ConexaoDB {
                 String nome = rs.getString("nome");
                 String cpf = rs.getString("cpf");
                 String cnpj = rs.getString("cnpj");
-                int tipo_pessoa_id = rs.getInt("tipo_pessoa_id");
-                entidades.add(new Pessoa(id, nome, cpf, cnpj, tipo_pessoa_id));
+                int tipoPessoaId = rs.getInt("tipo_pessoa_id");
+                entidades.add(new Pessoa(id, nome, cpf, cnpj, tipoPessoaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -102,7 +102,7 @@ public class PessoaDAO extends ConexaoDB {
         	statement.setString(1, entidade.getNome());
             statement.setString(2, entidade.getCpf());
             statement.setString(3, entidade.getCnpj());
-            statement.setInt(4, entidade.getTipo_pessoa_id());
+            statement.setInt(4, entidade.getTipoPessoaId());
             statement.setInt(5, entidade.getId());
 
             return statement.executeUpdate() > 0;

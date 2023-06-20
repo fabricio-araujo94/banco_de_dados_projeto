@@ -2,12 +2,12 @@ package br.com.luz.model;
 
 public class Classe extends GenericModel {
 	String descricao;
-	int tipo_fase_id;
+	int tipoFaseId;
 	
-	public Classe(Integer id, String descricao, int tipo_fase_id) {
+	public Classe(Integer id, String descricao, int tipoFaseId) {
 		super.setId(id);;
 		this.descricao = descricao;
-		this.tipo_fase_id = tipo_fase_id;
+		this.tipoFaseId = tipoFaseId;
 	}
 
 	public String getDescricao() {
@@ -18,11 +18,13 @@ public class Classe extends GenericModel {
 		this.descricao = descricao;
 	}
 
-	public int getTipo_fase() {
-		return tipo_fase_id;
+	public int getTipoFaseId() {
+		return tipoFaseId;
 	}
 
-	public void setTipo_fase(int tipo_fase_id) {
-		this.tipo_fase_id = tipo_fase_id;
+	public void setTipoFaseId(int tipoFaseId) {
+		this.tipoFaseId = tipoFaseId;
 	}
+
+
 }

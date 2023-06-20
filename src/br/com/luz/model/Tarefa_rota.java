@@ -4,17 +4,17 @@ import java.sql.Timestamp;
 
 public class Tarefa_rota extends GenericModel {
 	String observacao;
-	Timestamp data_inicio;
-	Timestamp data_fim;
-	int rota_id;
+	Timestamp dataInicio;
+	Timestamp dataFim;
+	int rotaId;
 	
 	
-	public Tarefa_rota(Integer id, String observacao, Timestamp data_inicio, Timestamp data_fim, int rota_id) {
+	public Tarefa_rota(Integer id, String observacao, Timestamp dataInicio, Timestamp dataFim, int rotaId) {
 		super.setId(id);
 		this.observacao = observacao;
-		this.data_inicio = data_inicio;
-		this.data_fim = data_fim;
-		this.rota_id = rota_id;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.rotaId = rotaId;
 	}
 
 
@@ -28,34 +28,34 @@ public class Tarefa_rota extends GenericModel {
 	}
 
 
-	public Timestamp getData_inicio() {
-		return data_inicio;
+	public Timestamp getDataInicio() {
+		return dataInicio;
 	}
 
 
-	public void setData_inicio(Timestamp data_inicio) {
-		this.data_inicio = data_inicio;
+	public void setDataInicio(Timestamp dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
 
-	public Timestamp getData_fim() {
-		return data_fim;
+	public Timestamp getDataFim() {
+		return dataFim;
 	}
 
 
-	public void setData_fim(Timestamp data_fim) {
-		this.data_fim = data_fim;
+	public void setDataFim(Timestamp dataFim) {
+		this.dataFim = dataFim;
 	}
 
 
-	public int getRota_id() {
-		return rota_id;
+	public int getRotaId() {
+		return rotaId;
 	}
 
 
-	public void setRota_id(int rota_id) {
-		this.rota_id = rota_id;
+	public void setRotaId(int rotaId) {
+		this.rotaId = rotaId;
 	}
-	
+
 	
 }

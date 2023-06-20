@@ -36,11 +36,11 @@ public class TarifaDAO extends ConexaoDB {
     public void insertTarifa(Tarifa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TARIFA_SQL)) {
         	preparedStatement.setString(1, entidade.getTaxa());
-            preparedStatement.setInt(2, entidade.getClasse_id());
+            preparedStatement.setInt(2, entidade.getClasseId());
             preparedStatement.setString(3, entidade.getLei());
-            preparedStatement.setString(4, entidade.getData_inicio());
-            preparedStatement.setString(5, entidade.getData_fim());
-            preparedStatement.setString(6, entidade.getAliquota_ICMS());
+            preparedStatement.setString(4, entidade.getDataInicio());
+            preparedStatement.setString(5, entidade.getDataFim());
+            preparedStatement.setString(6, entidade.getAliquotaICMS());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -57,12 +57,12 @@ public class TarifaDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String taxa = rs.getString("taxa");
-                int classe_id = rs.getInt("classe_id");
+                int classeId = rs.getInt("classe_id");
                 String lei = rs.getString("lei");
-                String data_inicio = rs.getString("data_inicio");
-                String data_fim = rs.getString("data_fim");
-                String aliquota_ICMS = rs.getString("aliquota_ICMS");
-                entidade = new Tarifa(id, taxa, classe_id, lei, data_inicio, data_fim, aliquota_ICMS);
+                String dataInicio = rs.getString("data_inicio");
+                String dataFim = rs.getString("data_fim");
+                String aliquotaICMS = rs.getString("aliquota_ICMS");
+                entidade = new Tarifa(id, taxa, classeId, lei, dataInicio, dataFim, aliquotaICMS);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -80,12 +80,12 @@ public class TarifaDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String taxa = rs.getString("taxa");
-                int classe_id = rs.getInt("classe_id");
+                int classeId = rs.getInt("classe_id");
                 String lei = rs.getString("lei");
-                String data_inicio = rs.getString("data_inicio");
-                String data_fim = rs.getString("data_fim");
-                String aliquota_ICMS = rs.getString("aliquota_ICMS");
-                entidades.add(new Tarifa(id, taxa, classe_id, lei, data_inicio, data_fim, aliquota_ICMS));
+                String dataInicio = rs.getString("data_inicio");
+                String dataFim = rs.getString("data_fim");
+                String aliquotaICMS = rs.getString("aliquota_ICMS");
+                entidades.add(new Tarifa(id, taxa, classeId, lei, dataInicio, dataFim, aliquotaICMS));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -107,11 +107,11 @@ public class TarifaDAO extends ConexaoDB {
     public boolean updateTarifa(Tarifa entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TARIFA_SQL)) {
         	statement.setString(1, entidade.getTaxa());
-            statement.setInt(2, entidade.getClasse_id());
+            statement.setInt(2, entidade.getClasseId());
             statement.setString(3, entidade.getLei());
-            statement.setString(4, entidade.getData_inicio());
-            statement.setString(5, entidade.getData_fim());
-            statement.setString(6, entidade.getAliquota_ICMS());
+            statement.setString(4, entidade.getDataInicio());
+            statement.setString(5, entidade.getDataFim());
+            statement.setString(6, entidade.getAliquotaICMS());
             statement.setInt(7, entidade.getId());
 
             return statement.executeUpdate() > 0;

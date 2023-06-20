@@ -1,49 +1,50 @@
 package br.com.luz.model;
 
 public class Cobranca extends GenericModel {
-	String mes_referencia;
-	String ano_referencia;
-	int tarifa_id;
-	int medicao_id;
+	String mesReferencia;
+	String anoReferencia;
+	int tarifaId;
+	int medicaoId;
 	
-	public Cobranca(Integer id, String mes_referencia, String ano_referencia, int tarifa_id, int medicao_id) {
+	public Cobranca(Integer id, String mesReferencia, String anoReferencia, int tarifaId, int medicaoId) {
 		super.setId(id);
-		this.mes_referencia = mes_referencia;
-		this.ano_referencia = ano_referencia;
-		this.tarifa_id = tarifa_id;
-		this.medicao_id = medicao_id;
+		this.mesReferencia = mesReferencia;
+		this.anoReferencia = anoReferencia;
+		this.tarifaId = tarifaId;
+		this.medicaoId = medicaoId;
 	}
 
-	public String getMes_referencia() {
-		return mes_referencia;
+	public String getMesReferencia() {
+		return mesReferencia;
 	}
 
-	public void setMes_referencia(String mes_referencia) {
-		this.mes_referencia = mes_referencia;
+	public void setMesReferencia(String mesReferencia) {
+		this.mesReferencia = mesReferencia;
 	}
 
-	public String getAno_referencia() {
-		return ano_referencia;
+	public String getAnoReferencia() {
+		return anoReferencia;
 	}
 
-	public void setAno_referencia(String ano_referencia) {
-		this.ano_referencia = ano_referencia;
+	public void setAnoReferencia(String anoReferencia) {
+		this.anoReferencia = anoReferencia;
 	}
 
-	public int getTarifa_id() {
-		return tarifa_id;
+	public int getTarifaId() {
+		return tarifaId;
 	}
 
-	public void setTarifa_id(int tarifa_id) {
-		this.tarifa_id = tarifa_id;
+	public void setTarifaId(int tarifaId) {
+		this.tarifaId = tarifaId;
 	}
 
-	public int getMedicao_id() {
-		return medicao_id;
+	public int getMedicaoId() {
+		return medicaoId;
 	}
 
-	public void setMedicao_id(int medicao_id) {
-		this.medicao_id = medicao_id;
+	public void setMedicaoId(int medicaoId) {
+		this.medicaoId = medicaoId;
 	}
+
 	
 }

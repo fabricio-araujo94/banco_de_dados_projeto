@@ -1,13 +1,13 @@
 package br.com.luz.model;
 
-public class Tipo_fase extends GenericModel {
+public class TipoFase extends GenericModel {
 	private String descricao;
 
-    public Tipo_fase(String descricao) {
+    public TipoFase(String descricao) {
         this.descricao = descricao;
     }
 
-    public Tipo_fase(Integer id, String descricao) {
+    public TipoFase(Integer id, String descricao) {
         this.descricao = descricao;
         super.setId(id);
     }

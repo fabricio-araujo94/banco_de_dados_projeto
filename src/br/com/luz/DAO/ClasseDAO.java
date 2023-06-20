@@ -9,11 +9,11 @@ import java.util.List;
 import br.com.luz.model.Classe;
 
 public class ClasseDAO extends ConexaoDB {
-	private static final String INSERT_CLASSE_SQL = "INSERT INTO classe (descricao, Classe_id) VALUES (?, ?);";
+	private static final String INSERT_CLASSE_SQL = "INSERT INTO classe (descricao, tipo_fase_id) VALUES (?, ?);";
     private static final String SELECT_CLASSE_BY_ID = "SELECT * FROM classe WHERE id = ?;";
     private static final String SELECT_ALL_CLASSE = "SELECT * FROM classe;";
     private static final String DELETE_CLASSE_SQL = "DELETE FROM classe WHERE id = ?;";
-    private static final String UPDATE_CLASSE_SQL = "UPDATE classe SET descricao = ?, Classe_id = ? WHERE id = ?;";
+    private static final String UPDATE_CLASSE_SQL = "UPDATE classe SET descricao = ?, tipo_fase_id = ? WHERE id = ?;";
     private static final String TOTAL = "SELECT count(1) FROM classe;";
 
 
@@ -36,7 +36,7 @@ public class ClasseDAO extends ConexaoDB {
     public void insertClasse(Classe entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_CLASSE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
-            preparedStatement.setInt(2, entidade.getTipo_fase());
+            preparedStatement.setInt(2, entidade.getTipoFaseId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -53,8 +53,8 @@ public class ClasseDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                int tipo_fase_id = rs.getInt("tipo_fase_id");
-                entidade = new Classe(id, descricao, tipo_fase_id);
+                int tipoFaseId = rs.getInt("tipo_fase_id");
+                entidade = new Classe(id, descricao, tipoFaseId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -72,8 +72,8 @@ public class ClasseDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                int tipo_fase_id = rs.getInt("tipo_fase_id");
-                entidades.add(new Classe(id, descricao, tipo_fase_id));
+                int tipoFaseId = rs.getInt("tipo_fase_id");
+                entidades.add(new Classe(id, descricao, tipoFaseId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -95,7 +95,7 @@ public class ClasseDAO extends ConexaoDB {
     public boolean updateClasse(Classe entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_CLASSE_SQL)) {
             statement.setString(1, entidade.getDescricao());
-            statement.setInt(2, entidade.getTipo_fase());
+            statement.setInt(2, entidade.getTipoFaseId());
             statement.setInt(3, entidade.getId());
 
             return statement.executeUpdate() > 0;

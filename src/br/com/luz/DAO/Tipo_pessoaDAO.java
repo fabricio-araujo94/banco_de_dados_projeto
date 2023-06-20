@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.luz.model.Tipo_pessoa;
+import br.com.luz.model.TipoPessoa;
 
 public class Tipo_pessoaDAO extends ConexaoDB {
 	private static final String INSERT_TIPO_PESSOA_SQL = "INSERT INTO tipo_pessoa (descricao) VALUES (?);";
@@ -32,7 +32,7 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipo_pessoa(Tipo_pessoa entidade) {
+    public void insertTipo_pessoa(TipoPessoa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_PESSOA_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
@@ -43,15 +43,15 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         }
     }
 
-    public Tipo_pessoa selectTipo_pessoa(int id) {
-        Tipo_pessoa entidade = null;
+    public TipoPessoa selectTipo_pessoa(int id) {
+        TipoPessoa entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_PESSOA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                entidade = new Tipo_pessoa(id, descricao);
+                entidade = new TipoPessoa(id, descricao);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -61,15 +61,15 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Tipo_pessoa> selectAllTipo_pessoa() {
-        List<Tipo_pessoa> entidades = new ArrayList<>();
+    public List<TipoPessoa> selectAllTipo_pessoa() {
+        List<TipoPessoa> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_PESSOA)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                entidades.add(new Tipo_pessoa(id, descricao));
+                entidades.add(new TipoPessoa(id, descricao));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -88,7 +88,7 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTipo_pessoa(Tipo_pessoa entidade) throws SQLException {
+    public boolean updateTipo_pessoa(TipoPessoa entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_PESSOA_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());

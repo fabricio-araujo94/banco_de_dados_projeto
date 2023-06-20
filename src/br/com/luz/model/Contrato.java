@@ -4,21 +4,21 @@ import java.sql.Timestamp;
 
 public class Contrato extends GenericModel {
 	String descricao;
-	Timestamp data_inicio;
-	Timestamp data_criacao;
-	int medidor_id;
-	int classe_id;
-	int cliente_id;
+	Timestamp dataInicio;
+	Timestamp dataCriacao;
+	int medidorId;
+	int classeId;
+	int clienteId;
 	
-	public Contrato(Integer id, String descricao, Timestamp data_inicio, Timestamp data_criacao, int medidor_id, int classe_id,
-			int cliente_id) {
-		super.setId(id);;
+	public Contrato(Integer id, String descricao, Timestamp dataInicio, Timestamp dataCriacao, int medidorId, int classeId,
+			int clienteId) {
+		super.setId(id);
 		this.descricao = descricao;
-		this.data_inicio = data_inicio;
-		this.data_criacao = data_criacao;
-		this.medidor_id = medidor_id;
-		this.classe_id = classe_id;
-		this.cliente_id = cliente_id;
+		this.dataInicio = dataInicio;
+		this.dataCriacao = dataCriacao;
+		this.medidorId = medidorId;
+		this.classeId = classeId;
+		this.clienteId = clienteId;
 	}
 
 	public String getDescricao() {
@@ -29,47 +29,46 @@ public class Contrato extends GenericModel {
 		this.descricao = descricao;
 	}
 
-	public Timestamp getData_inicio() {
-		return data_inicio;
+	public Timestamp getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setData_inicio(Timestamp data_inicio) {
-		this.data_inicio = data_inicio;
+	public void setDataInicio(Timestamp dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
-	public Timestamp getData_criacao() {
-		return data_criacao;
+	public Timestamp getDataCriacao() {
+		return dataCriacao;
 	}
 
-	public void setData_criacao(Timestamp data_criacao) {
-		this.data_criacao = data_criacao;
+	public void setDataCriacao(Timestamp dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
-	public int getMedidor_id() {
-		return medidor_id;
+	public int getMedidorId() {
+		return medidorId;
 	}
 
-	public void setMedidor_id(int medidor_id) {
-		this.medidor_id = medidor_id;
+	public void setMedidorId(int medidorId) {
+		this.medidorId = medidorId;
 	}
 
-	public int getClasse_id() {
-		return classe_id;
+	public int getClasseId() {
+		return classeId;
 	}
 
-	public void setClasse_id(int classe_id) {
-		this.classe_id = classe_id;
+	public void setClasseId(int classeId) {
+		this.classeId = classeId;
 	}
 
-	public int getCliente_id() {
-		return cliente_id;
+	public int getClienteId() {
+		return clienteId;
 	}
 
-	public void setCliente_id(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
 	}
-	
-	
+
 	
 	
 }

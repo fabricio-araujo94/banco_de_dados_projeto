@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.luz.model.Time_rota;
+import br.com.luz.model.TimeRota;
 
 public class Time_rotaDAO extends ConexaoDB {
 	private static final String INSERT_TIME_ROTA_SQL = "INSERT INTO time_rota (funcionario_id, tarefa_rota_id) VALUES (?, ?;";
@@ -33,10 +33,10 @@ public class Time_rotaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTime_rota(Time_rota entidade) {
+    public void insertTime_rota(TimeRota entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIME_ROTA_SQL)) {
-            preparedStatement.setInt(1, entidade.getFuncionario_id());
-            preparedStatement.setInt(2, entidade.getTarefa_rota_id());
+            preparedStatement.setInt(1, entidade.getFuncionarioId());
+            preparedStatement.setInt(2, entidade.getTarefaRotaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -45,17 +45,17 @@ public class Time_rotaDAO extends ConexaoDB {
         }
     }
 
-    public Time_rota selectTime_rota(int id) {
-        Time_rota entidade = null;
+    public TimeRota selectTime_rota(int id) {
+        TimeRota entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIME_ROTA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                int funcionario_id = rs.getInt("funcionario_id");
-                int tarefa_rota_id = rs.getInt("tarefa_rota_id");
+                int funcionarioId = rs.getInt("funcionario_id");
+                int tarefaRotaId = rs.getInt("tarefa_rota_id");
         
-                entidade = new Time_rota(id, funcionario_id, tarefa_rota_id);
+                entidade = new TimeRota(id, funcionarioId, tarefaRotaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -65,16 +65,16 @@ public class Time_rotaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Time_rota> selectAllTime_rota() {
-        List<Time_rota> entidades = new ArrayList<>();
+    public List<TimeRota> selectAllTime_rota() {
+        List<TimeRota> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIME_ROTA)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
-                int funcionario_id = rs.getInt("funcionario_id");
-                int tarefa_rota_id = rs.getInt("tarefa_rota_id");
-                entidades.add(new Time_rota(id, funcionario_id, tarefa_rota_id));
+                int funcionarioId = rs.getInt("funcionario_id");
+                int tarefaRotaId = rs.getInt("tarefa_rota_id");
+                entidades.add(new TimeRota(id, funcionarioId, tarefaRotaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -93,10 +93,10 @@ public class Time_rotaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTime_rota(Time_rota entidade) throws SQLException {
+    public boolean updateTime_rota(TimeRota entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIME_ROTA_SQL)) {
-        	statement.setInt(1, entidade.getFuncionario_id());
-            statement.setInt(2, entidade.getTarefa_rota_id());
+        	statement.setInt(1, entidade.getFuncionarioId());
+            statement.setInt(2, entidade.getTarefaRotaId());
             statement.setInt(3, entidade.getId());
 
             return statement.executeUpdate() > 0;

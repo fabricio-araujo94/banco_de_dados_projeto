@@ -34,8 +34,8 @@ public class FuncionarioDAO extends ConexaoDB {
 
     public void insertFuncionario(Funcionario entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_FUNCIONARIO_SQL)) {
-            preparedStatement.setString(1, entidade.getCodigo_funcional());
-            preparedStatement.setInt(2, entidade.getPessoa_id());
+            preparedStatement.setString(1, entidade.getCodigoFuncional());
+            preparedStatement.setInt(2, entidade.getPessoaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -51,9 +51,9 @@ public class FuncionarioDAO extends ConexaoDB {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                String codigo_funcional = rs.getString("codigo_funcional");
-                int pessoa_id = rs.getInt("pessoa_id");
-                entidade = new Funcionario(id, codigo_funcional, pessoa_id);
+                String codigoFuncional = rs.getString("codigo_funcional");
+                int pessoaId = rs.getInt("pessoa_id");
+                entidade = new Funcionario(id, codigoFuncional, pessoaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -70,9 +70,9 @@ public class FuncionarioDAO extends ConexaoDB {
 
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String codigo_funcional = rs.getString("codigo_funcional");
-                int pessoa_id = rs.getInt("pessoa_id");
-                entidades.add(new Funcionario(id, codigo_funcional, pessoa_id));
+                String codigoFuncional = rs.getString("codigo_funcional");
+                int pessoaId = rs.getInt("pessoa_id");
+                entidades.add(new Funcionario(id, codigoFuncional, pessoaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -93,8 +93,8 @@ public class FuncionarioDAO extends ConexaoDB {
 
     public boolean updateFuncionario(Funcionario entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_FUNCIONARIO_SQL)) {
-        	statement.setString(1, entidade.getCodigo_funcional());
-        	statement.setInt(2, entidade.getPessoa_id());
+        	statement.setString(1, entidade.getCodigoFuncional());
+        	statement.setInt(2, entidade.getPessoaId());
             statement.setInt(3, entidade.getId());
 
             return statement.executeUpdate() > 0;

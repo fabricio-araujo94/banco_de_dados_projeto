@@ -2,20 +2,20 @@ package br.com.luz.model;
 
 public class Tarifa extends GenericModel {
 	String taxa;
-	int classe_id;
+	int classeId;
 	String lei;
-	String data_inicio;
-	String data_fim;
-	String aliquota_ICMS;
+	String dataInicio;
+	String dataFim;
+	String aliquotaICMS;
 	
-	public Tarifa(Integer id, String taxa, int classe_id, String lei, String data_inicio, String data_fim, String aliquota_ICMS) {
+	public Tarifa(Integer id, String taxa, int classeId, String lei, String dataInicio, String dataFim, String aliquotaICMS) {
 		super.setId(id);
 		this.taxa = taxa;
-		this.classe_id = classe_id;
+		this.classeId = classeId;
 		this.lei = lei;
-		this.data_inicio = data_inicio;
-		this.data_fim = data_fim;
-		this.aliquota_ICMS = aliquota_ICMS;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.aliquotaICMS = aliquotaICMS;
 	}
 
 	public String getTaxa() {
@@ -26,12 +26,12 @@ public class Tarifa extends GenericModel {
 		this.taxa = taxa;
 	}
 
-	public int getClasse_id() {
-		return classe_id;
+	public int getClasseId() {
+		return classeId;
 	}
 
-	public void setClasse_id(int classe_id) {
-		this.classe_id = classe_id;
+	public void setClasseId(int classeId) {
+		this.classeId = classeId;
 	}
 
 	public String getLei() {
@@ -42,31 +42,28 @@ public class Tarifa extends GenericModel {
 		this.lei = lei;
 	}
 
-	public String getData_inicio() {
-		return data_inicio;
+	public String getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setData_inicio(String data_inicio) {
-		this.data_inicio = data_inicio;
+	public void setDataInicio(String dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
-	public String getData_fim() {
-		return data_fim;
+	public String getDataFim() {
+		return dataFim;
 	}
 
-	public void setData_fim(String data_fim) {
-		this.data_fim = data_fim;
+	public void setDataFim(String dataFim) {
+		this.dataFim = dataFim;
 	}
 
-	public String getAliquota_ICMS() {
-		return aliquota_ICMS;
+	public String getAliquotaICMS() {
+		return aliquotaICMS;
 	}
 
-	public void setAliquota_ICMS(String aliquota_ICMS) {
-		this.aliquota_ICMS = aliquota_ICMS;
+	public void setAliquotaICMS(String aliquotaICMS) {
+		this.aliquotaICMS = aliquotaICMS;
 	}
-	
-	
-	
 	
 }

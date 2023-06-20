@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.luz.model.Tipo_fase;
+import br.com.luz.model.TipoFase;
 
 public class Tipo_faseDAO extends ConexaoDB {
 	private static final String INSERT_TIPO_FASE_SQL = "INSERT INTO tipo_fase (descricao) VALUES (?);";
@@ -32,7 +32,7 @@ public class Tipo_faseDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipo_fase(Tipo_fase entidade) {
+    public void insertTipo_fase(TipoFase entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_FASE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
@@ -43,15 +43,15 @@ public class Tipo_faseDAO extends ConexaoDB {
         }
     }
 
-    public Tipo_fase selectTipo_fase(int id) {
-        Tipo_fase entidade = null;
+    public TipoFase selectTipo_fase(int id) {
+        TipoFase entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_FASE_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                entidade = new Tipo_fase(id, descricao);
+                entidade = new TipoFase(id, descricao);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -61,15 +61,15 @@ public class Tipo_faseDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Tipo_fase> selectAllTipo_fase() {
-        List<Tipo_fase> entidades = new ArrayList<>();
+    public List<TipoFase> selectAllTipo_fase() {
+        List<TipoFase> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_FASE)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                entidades.add(new Tipo_fase(id, descricao));
+                entidades.add(new TipoFase(id, descricao));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -88,7 +88,7 @@ public class Tipo_faseDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTipo_fase(Tipo_fase entidade) throws SQLException {
+    public boolean updateTipo_fase(TipoFase entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_FASE_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());

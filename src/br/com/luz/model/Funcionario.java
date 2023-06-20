@@ -1,30 +1,29 @@
 package br.com.luz.model;
 
 public class Funcionario extends GenericModel {
-	String codigo_funcional;
-	int pessoa_id;
+	String codigoFuncional;
+	int pessoaId;
 	
-	public Funcionario(Integer id, String codigo_funcional, int pessoa_id) {
+	public Funcionario(Integer id, String codigoFuncional, int pessoaId) {
 		super.setId(id);;
-		this.codigo_funcional = codigo_funcional;
-		this.pessoa_id = pessoa_id;
+		this.codigoFuncional = codigoFuncional;
+		this.pessoaId = pessoaId;
 	}
 
-	public String getCodigo_funcional() {
-		return codigo_funcional;
+	public String getCodigoFuncional() {
+		return codigoFuncional;
 	}
 
-	public void setCodigo_funcional(String codigo_funcional) {
-		this.codigo_funcional = codigo_funcional;
+	public void setCodigoFuncional(String codigoFuncional) {
+		this.codigoFuncional = codigoFuncional;
 	}
 
-	public int getPessoa_id() {
-		return pessoa_id;
+	public int getPessoaId() {
+		return pessoaId;
 	}
 
-	public void setPessoa_id(int pessoa_id) {
-		this.pessoa_id = pessoa_id;
+	public void setPessoaId(int pessoaId) {
+		this.pessoaId = pessoaId;
 	}
-	
 	
 }

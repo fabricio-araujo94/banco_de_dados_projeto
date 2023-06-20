@@ -36,8 +36,8 @@ public class MedidorDAO extends ConexaoDB {
     public void insertMedidor(Medidor entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_MEDIDOR_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
-            preparedStatement.setInt(2, entidade.getRota_id());
-            preparedStatement.setInt(3, entidade.getPoste_id());
+            preparedStatement.setInt(2, entidade.getRotaId());
+            preparedStatement.setInt(3, entidade.getPosteId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -54,9 +54,9 @@ public class MedidorDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                int rota_id = rs.getInt("rota_id");
-                int poste_id = rs.getInt("poste_id");
-                entidade = new Medidor(id, descricao, rota_id, poste_id);
+                int rotaId = rs.getInt("rota_id");
+                int posteId = rs.getInt("poste_id");
+                entidade = new Medidor(id, descricao, rotaId, posteId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -74,9 +74,9 @@ public class MedidorDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                int rota_id = rs.getInt("rota_id");
-                int poste_id = rs.getInt("poste_id");
-                entidades.add(new Medidor(id, descricao, rota_id, poste_id));
+                int rotaId = rs.getInt("rota_id");
+                int posteId = rs.getInt("poste_id");
+                entidades.add(new Medidor(id, descricao, rotaId, posteId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -98,8 +98,8 @@ public class MedidorDAO extends ConexaoDB {
     public boolean updateMedidor(Medidor entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_MEDIDOR_SQL)) {
         	statement.setString(1, entidade.getDescricao());
-            statement.setInt(2, entidade.getRota_id());
-            statement.setInt(3, entidade.getPoste_id());
+            statement.setInt(2, entidade.getRotaId());
+            statement.setInt(3, entidade.getPosteId());
             statement.setInt(4, entidade.getId());
 
             return statement.executeUpdate() > 0;

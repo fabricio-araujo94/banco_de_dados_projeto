@@ -2,14 +2,14 @@ package br.com.luz.model;
 
 public class Medidor extends GenericModel {
 	String descricao;
-	int rota_id;
-	int poste_id;
+	int rotaId;
+	int posteId;
 	
-	public Medidor(Integer id, String descricao, int rota_id, int poste_id) {
-		super.setId(id);;
+	public Medidor(Integer id, String descricao, int rotaId, int posteId) {
+		super.setId(id);
 		this.descricao = descricao;
-		this.rota_id = rota_id;
-		this.poste_id = poste_id;
+		this.rotaId = rotaId;
+		this.posteId = posteId;
 	}
 
 	public String getDescricao() {
@@ -20,23 +20,23 @@ public class Medidor extends GenericModel {
 		this.descricao = descricao;
 	}
 
-	public int getRota_id() {
-		return rota_id;
+	public int getRotaId() {
+		return rotaId;
 	}
 
-	public void setRota_id(int rota_id) {
-		this.rota_id = rota_id;
+	public void setRotaId(int rotaId) {
+		this.rotaId = rotaId;
 	}
 
-	public int getPoste_id() {
-		return poste_id;
+	public int getPosteId() {
+		return posteId;
 	}
 
-	public void setPoste_id(int poste_id) {
-		this.poste_id = poste_id;
+	public void setPosteId(int posteId) {
+		this.posteId = posteId;
 	}
-	
-	
+
+
 	
 	
 }

@@ -38,10 +38,10 @@ public class MedicaoDAO extends ConexaoDB {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_MEDICAO_SQL)) {
             preparedStatement.setString(1, entidade.getMes());
             preparedStatement.setString(2, entidade.getAno());
-            preparedStatement.setTimestamp(3, entidade.getData_medicao());
+            preparedStatement.setTimestamp(3, entidade.getDataMedicao());
             preparedStatement.setString(5, entidade.getConsumo());
-            preparedStatement.setInt(6, entidade.getMedidor_id());
-            preparedStatement.setInt(7, entidade.getTime_rota_id());
+            preparedStatement.setInt(6, entidade.getMedidorId());
+            preparedStatement.setInt(7, entidade.getTimeRotaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -59,11 +59,11 @@ public class MedicaoDAO extends ConexaoDB {
             while (rs.next()) {
                 String mes = rs.getString("mes");
                 String ano = rs.getString("ano");
-                Timestamp data_medicao = rs.getTimestamp("data_medicao");
+                Timestamp dataMedicao = rs.getTimestamp("data_medicao");
                 String consumo = rs.getString("consumo");
-                int medidor_id = rs.getInt("medidor_id");
-                int time_rota_id = rs.getInt("time_rota_id");
-                entidade = new Medicao(id, mes, ano, data_medicao, consumo, medidor_id, time_rota_id);
+                int medidorId = rs.getInt("medidor_id");
+                int timeRotaId = rs.getInt("time_rota_id");
+                entidade = new Medicao(id, mes, ano, dataMedicao, consumo, medidorId, timeRotaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -82,11 +82,11 @@ public class MedicaoDAO extends ConexaoDB {
                 int id = rs.getInt("id");
                 String mes = rs.getString("mes");
                 String ano = rs.getString("ano");
-                Timestamp data_medicao = rs.getTimestamp("data_medicao");
+                Timestamp dataMedicao = rs.getTimestamp("data_medicao");
                 String consumo = rs.getString("consumo");
-                int medidor_id = rs.getInt("medidor_id");
-                int time_rota_id = rs.getInt("time_rota_id");
-                entidades.add(new Medicao(id, mes, ano, data_medicao, consumo, medidor_id, time_rota_id));
+                int medidorId = rs.getInt("medidor_id");
+                int timeRotaId = rs.getInt("time_rota_id");
+                entidades.add(new Medicao(id, mes, ano, dataMedicao, consumo, medidorId, timeRotaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -109,10 +109,10 @@ public class MedicaoDAO extends ConexaoDB {
         try (PreparedStatement statement = prepararSQL(UPDATE_MEDICAO_SQL)) {
         	statement.setString(1, entidade.getMes());
             statement.setString(2, entidade.getAno());
-            statement.setTimestamp(3, entidade.getData_medicao());
+            statement.setTimestamp(3, entidade.getDataMedicao());
             statement.setString(5, entidade.getConsumo());
-            statement.setInt(6, entidade.getMedidor_id());
-            statement.setInt(7, entidade.getTime_rota_id());
+            statement.setInt(6, entidade.getMedidorId());
+            statement.setInt(7, entidade.getTimeRotaId());
             statement.setInt(8, entidade.getId());
 
             return statement.executeUpdate() > 0;

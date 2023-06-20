@@ -35,10 +35,10 @@ public class CobrancaDAO extends ConexaoDB {
 
     public void insertCobranca(Cobranca entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_COBRANCA_SQL)) {
-            preparedStatement.setString(1, entidade.getMes_referencia());
-            preparedStatement.setString(2, entidade.getAno_referencia());
-            preparedStatement.setInt(3, entidade.getTarifa_id());
-            preparedStatement.setInt(4, entidade.getMedicao_id());
+            preparedStatement.setString(1, entidade.getMesReferencia());
+            preparedStatement.setString(2, entidade.getAnoReferencia());
+            preparedStatement.setInt(3, entidade.getTarifaId());
+            preparedStatement.setInt(4, entidade.getMedicaoId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -54,11 +54,11 @@ public class CobrancaDAO extends ConexaoDB {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-            	String mes_referencia = rs.getString("mes_referencia");
-                String ano_referencia = rs.getString("ano_referencia");
-                int tarifa_id = rs.getInt("tarifa_id");
-                int medicao_id = rs.getInt("medicao_id");
-                entidade = new Cobranca(id, mes_referencia, ano_referencia, tarifa_id, medicao_id);
+            	String mesReferencia = rs.getString("mes_referencia");
+                String anoReferencia = rs.getString("ano_referencia");
+                int tarifaId = rs.getInt("tarifa_id");
+                int medicaoId = rs.getInt("medicao_id");
+                entidade = new Cobranca(id, mesReferencia, anoReferencia, tarifaId, medicaoId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -75,11 +75,11 @@ public class CobrancaDAO extends ConexaoDB {
 
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String mes_referencia = rs.getString("mes_referencia");
-                String ano_referencia = rs.getString("ano_referencia");
-                int tarifa_id = rs.getInt("tarifa_id");
-                int medicao_id = rs.getInt("medicao_id");
-                entidades.add(new Cobranca(id, mes_referencia, ano_referencia, tarifa_id, medicao_id));
+                String mesReferencia = rs.getString("mes_referencia");
+                String anoReferencia = rs.getString("ano_referencia");
+                int tarifaId = rs.getInt("tarifa_id");
+                int medicaoId = rs.getInt("medicao_id");
+                entidades.add(new Cobranca(id, mesReferencia, anoReferencia, tarifaId, medicaoId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -100,10 +100,10 @@ public class CobrancaDAO extends ConexaoDB {
 
     public boolean updateCobranca(Cobranca entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_COBRANCA_SQL)) {
-        	statement.setString(1, entidade.getMes_referencia());
-            statement.setString(2, entidade.getAno_referencia());
-            statement.setInt(3, entidade.getTarifa_id());
-            statement.setInt(4, entidade.getMedicao_id());
+        	statement.setString(1, entidade.getMesReferencia());
+            statement.setString(2, entidade.getAnoReferencia());
+            statement.setInt(3, entidade.getTarifaId());
+            statement.setInt(4, entidade.getMedicaoId());
             statement.setInt(5, entidade.getId());
 
             return statement.executeUpdate() > 0;

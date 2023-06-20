@@ -37,9 +37,9 @@ public class Tarefa_rotaDAO extends ConexaoDB {
     public void insertTarefa_rota(Tarefa_rota entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TAREFA_ROTA_SQL)) {
             preparedStatement.setString(1, entidade.getObservacao());
-            preparedStatement.setTimestamp(2, entidade.getData_inicio());
-            preparedStatement.setTimestamp(3, entidade.getData_fim());
-            preparedStatement.setInt(4, entidade.getRota_id());
+            preparedStatement.setTimestamp(2, entidade.getDataInicio());
+            preparedStatement.setTimestamp(3, entidade.getDataFim());
+            preparedStatement.setInt(4, entidade.getRotaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -56,10 +56,10 @@ public class Tarefa_rotaDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String observacao = rs.getString("observacao");
-                Timestamp data_inicio = rs.getTimestamp("data_inicio");
-                Timestamp data_fim = rs.getTimestamp("data_fim");
-                int rota_id = rs.getInt("rota_id");
-                entidade = new Tarefa_rota(id, observacao, data_inicio, data_fim, rota_id);
+                Timestamp dataInicio = rs.getTimestamp("data_inicio");
+                Timestamp dataFim = rs.getTimestamp("data_fim");
+                int rotaId = rs.getInt("rota_id");
+                entidade = new Tarefa_rota(id, observacao, dataInicio, dataFim, rotaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -77,10 +77,10 @@ public class Tarefa_rotaDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String observacao = rs.getString("observacao");
-                Timestamp data_inicio = rs.getTimestamp("data_inicio");
-                Timestamp data_fim = rs.getTimestamp("data_fim");
-                int rota_id = rs.getInt("rota_id");
-                entidades.add(new Tarefa_rota(id, observacao, data_inicio, data_fim, rota_id));
+                Timestamp dataInicio = rs.getTimestamp("data_inicio");
+                Timestamp dataFim = rs.getTimestamp("data_fim");
+                int rotaId = rs.getInt("rota_id");
+                entidades.add(new Tarefa_rota(id, observacao, dataInicio, dataFim, rotaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -102,9 +102,9 @@ public class Tarefa_rotaDAO extends ConexaoDB {
     public boolean updateTarefa_rota(Tarefa_rota entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TAREFA_ROTA_SQL)) {
         	statement.setString(1, entidade.getObservacao());
-            statement.setTimestamp(2, entidade.getData_fim());
-            statement.setTimestamp(3, entidade.getData_inicio());
-            statement.setInt(4, entidade.getRota_id());
+            statement.setTimestamp(2, entidade.getDataFim());
+            statement.setTimestamp(3, entidade.getDataInicio());
+            statement.setInt(4, entidade.getRotaId());
             statement.setInt(5, entidade.getId());
 
             return statement.executeUpdate() > 0;
