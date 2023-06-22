@@ -1,5 +1,9 @@
 package br.com.luz.util;
 
+import br.com.luz.servico.ServicoPoste;
+
+import br.com.luz.model.Pessoa;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -11,12 +15,16 @@ import br.com.luz.model.Poste;
 public class Teste {
 	static PosteDAO marcaDAO = new PosteDAO();
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, Exception {
 
+    	ServicoPoste.inserirPoste();
+    	
+    	
+    	
+    	/*
         //count
         System.out.println(marcaDAO.count());
         
-        /*
         //salvar
          marca = new ("Citroen");
         marcaDAO.insert(marca);

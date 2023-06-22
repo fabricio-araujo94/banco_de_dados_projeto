@@ -31,3 +31,4 @@ replay_pid*
 
 src/br/com/frota/DAO/ConexaoDB.java
 src/br/com/luz/DAO/ConexaoDB.java
+src/br/com/luz/util/Teste.java

@@ -46,7 +46,7 @@ public class PessoaDAO extends ConexaoDB {
         }
     }
 
-    public Pessoa selectPessoa(int id) {
+    public Pessoa selectPessoa(int id) throws Exception {
         Pessoa entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_PESSOA_BY_ID)) {
             preparedStatement.setInt(1, id);
@@ -67,7 +67,7 @@ public class PessoaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Pessoa> selectAllPessoa() {
+    public List<Pessoa> selectAllPessoa() throws Exception {
         List<Pessoa> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_PESSOA)) {
             ResultSet rs = preparedStatement.executeQuery();

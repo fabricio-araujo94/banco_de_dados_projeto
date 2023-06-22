@@ -1,5 +1,5 @@
 package br.com.luz.servico;
 
-public class ContaDeLuz {
-	
+public class ServicoPessoa {
+
 }

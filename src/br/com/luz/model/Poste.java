@@ -45,6 +45,12 @@ public class Poste extends GenericModel {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+
+	@Override
+	public String toString() {
+		return "Poste [latitude=" + latitude + ", longitude=" + longitude + ", codigo=" + codigo + ", observacao="
+				+ observacao + "]";
+	}
 	
 	
 }
