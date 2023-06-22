@@ -26,5 +26,10 @@ public class Classe extends GenericModel {
 		this.tipoFaseId = tipoFaseId;
 	}
 
+	@Override
+	public String toString() {
+		return "Classe [descricao=" + descricao + ", tipoFaseId=" + tipoFaseId + ", getId()=" + this.getId() + "]";
+	}
+
 
 }

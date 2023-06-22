@@ -20,11 +20,9 @@ public class TipoFase extends GenericModel {
         this.descricao = descricao;
     }
 
-    @Override
-    public String toString() {
-        return "Tipo Fase {" +
-                "id='" + this.getId() + "\'" +
-                "descricao='" + descricao + "\'" +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "TipoFase [descricao=" + descricao + ", getId()=" + this.getId() + "]";
+	}
+
 }

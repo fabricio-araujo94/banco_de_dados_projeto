@@ -69,6 +69,13 @@ public class Contrato extends GenericModel {
 		this.clienteId = clienteId;
 	}
 
+	@Override
+	public String toString() {
+		return "Contrato [descricao=" + descricao + ", dataInicio=" + dataInicio + ", dataCriacao=" + dataCriacao
+				+ ", medidorId=" + medidorId + ", classeId=" + classeId + ", clienteId=" + clienteId + ", getId()="
+				+ this.getId() + "]";
+	}
+
 	
 	
 }

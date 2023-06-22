@@ -2,14 +2,14 @@ package br.com.luz.model;
 
 import java.sql.Timestamp;
 
-public class Tarefa_rota extends GenericModel {
+public class TarefaRota extends GenericModel {
 	String observacao;
 	Timestamp dataInicio;
 	Timestamp dataFim;
 	int rotaId;
 	
 	
-	public Tarefa_rota(Integer id, String observacao, Timestamp dataInicio, Timestamp dataFim, int rotaId) {
+	public TarefaRota(Integer id, String observacao, Timestamp dataInicio, Timestamp dataFim, int rotaId) {
 		super.setId(id);
 		this.observacao = observacao;
 		this.dataInicio = dataInicio;
@@ -55,6 +55,13 @@ public class Tarefa_rota extends GenericModel {
 
 	public void setRotaId(int rotaId) {
 		this.rotaId = rotaId;
+	}
+
+
+	@Override
+	public String toString() {
+		return "TarefaRota [observacao=" + observacao + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim
+				+ ", rotaId=" + rotaId + ", getId()=" + this.getId() + "]";
 	}
 
 	

@@ -68,5 +68,11 @@ public class Medicao extends GenericModel {
 	public void setTimeRotaId(int timeRotaId) {
 		this.timeRotaId = timeRotaId;
 	}
+
+	@Override
+	public String toString() {
+		return "Medicao [mes=" + mes + ", ano=" + ano + ", dataMedicao=" + dataMedicao + ", consumo=" + consumo
+				+ ", medidorId=" + medidorId + ", timeRotaId=" + timeRotaId + ", getId()=" + this.getId() + "]";
+	}
 	
 }

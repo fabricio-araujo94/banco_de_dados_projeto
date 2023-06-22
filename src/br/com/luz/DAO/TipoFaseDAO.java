@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.luz.model.TipoPessoa;
+import br.com.luz.model.TipoFase;
 
-public class Tipo_pessoaDAO extends ConexaoDB {
-	private static final String INSERT_TIPO_PESSOA_SQL = "INSERT INTO tipo_pessoa (descricao) VALUES (?);";
-    private static final String SELECT_TIPO_PESSOA_BY_ID = "SELECT id, descricao FROM tipo_pessoa WHERE id = ?;";
-    private static final String SELECT_ALL_TIPO_PESSOA = "SELECT * FROM tipo_pessoa;";
-    private static final String DELETE_TIPO_PESSOA_SQL = "DELETE FROM tipo_pessoa WHERE id = ?;";
-    private static final String UPDATE_TIPO_PESSOA_SQL = "UPDATE tipo_pessoa SET descricao = ? WHERE id = ?;";
-    private static final String TOTAL = "SELECT count(1) FROM tipo_pessoa;";
+public class TipoFaseDAO extends ConexaoDB {
+	private static final String INSERT_TIPO_FASE_SQL = "INSERT INTO tipo_fase (descricao) VALUES (?);";
+    private static final String SELECT_TIPO_FASE_BY_ID = "SELECT id, descricao FROM tipo_fase WHERE id = ?;";
+    private static final String SELECT_ALL_TIPO_FASE = "SELECT * FROM tipo_fase;";
+    private static final String DELETE_TIPO_FASE_SQL = "DELETE FROM tipo_fase WHERE id = ?;";
+    private static final String UPDATE_TIPO_FASE_SQL = "UPDATE tipo_fase SET descricao = ? WHERE id = ?;";
+    private static final String TOTAL = "SELECT count(1) FROM tipo_fase;";
 
     public Integer count() {
         Integer count = 0;
@@ -32,8 +32,8 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipo_pessoa(TipoPessoa entidade) {
-        try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_PESSOA_SQL)) {
+    public void insertTipo_fase(TipoFase entidade) {
+        try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_FASE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -43,15 +43,15 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         }
     }
 
-    public TipoPessoa selectTipo_pessoa(int id) {
-        TipoPessoa entidade = null;
-        try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_PESSOA_BY_ID)) {
+    public TipoFase selectTipo_fase(int id) {
+        TipoFase entidade = null;
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_FASE_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                entidade = new TipoPessoa(id, descricao);
+                entidade = new TipoFase(id, descricao);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -61,15 +61,15 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<TipoPessoa> selectAllTipo_pessoa() {
-        List<TipoPessoa> entidades = new ArrayList<>();
-        try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_PESSOA)) {
+    public List<TipoFase> selectAllTipo_fase() {
+        List<TipoFase> entidades = new ArrayList<>();
+        try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_FASE)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                entidades.add(new TipoPessoa(id, descricao));
+                entidades.add(new TipoFase(id, descricao));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -79,8 +79,8 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         return entidades;
     }
 
-    public boolean deleteTipo_pessoa(int id) throws SQLException {
-        try (PreparedStatement statement = prepararSQL(DELETE_TIPO_PESSOA_SQL)) {
+    public boolean deleteTipo_fase(int id) throws SQLException {
+        try (PreparedStatement statement = prepararSQL(DELETE_TIPO_FASE_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {
@@ -88,8 +88,8 @@ public class Tipo_pessoaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTipo_pessoa(TipoPessoa entidade) throws SQLException {
-        try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_PESSOA_SQL)) {
+    public boolean updateTipo_fase(TipoFase entidade) throws SQLException {
+        try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_FASE_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());
 

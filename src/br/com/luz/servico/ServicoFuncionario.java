@@ -59,7 +59,7 @@ public class ServicoFuncionario extends FuncionarioDAO {
 		try {
 			funcionario.updateFuncionario(funcionarioId);
 		} finally {
-			System.out.println("POSTE ATUALIZADO COM SUCESSO");
+			//
 		}
 	}
 	

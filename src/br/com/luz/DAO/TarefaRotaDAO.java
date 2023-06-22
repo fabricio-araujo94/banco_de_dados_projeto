@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
 
-import br.com.luz.model.Tarefa_rota;
+import br.com.luz.model.TarefaRota;
 
-public class Tarefa_rotaDAO extends ConexaoDB {
+public class TarefaRotaDAO extends ConexaoDB {
 	private static final String INSERT_TAREFA_ROTA_SQL = "INSERT INTO tarefa_rota (observacao, data_inicio, data_fim, rota_id) VALUES (?, ?, ?, ?);";
     private static final String SELECT_TAREFA_ROTA_BY_ID = "SELECT * FROM tarefa_rota WHERE id = ?;";
     private static final String SELECT_ALL_TAREFA_ROTA = "SELECT * FROM tarefa_rota;";
@@ -34,7 +34,7 @@ public class Tarefa_rotaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTarefa_rota(Tarefa_rota entidade) {
+    public void insertTarefaRota(TarefaRota entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TAREFA_ROTA_SQL)) {
             preparedStatement.setString(1, entidade.getObservacao());
             preparedStatement.setTimestamp(2, entidade.getDataInicio());
@@ -48,8 +48,8 @@ public class Tarefa_rotaDAO extends ConexaoDB {
         }
     }
 
-    public Tarefa_rota selectTarefa_rota(int id) {
-        Tarefa_rota entidade = null;
+    public TarefaRota selectTarefaRota(int id) {
+        TarefaRota entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TAREFA_ROTA_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
@@ -59,7 +59,7 @@ public class Tarefa_rotaDAO extends ConexaoDB {
                 Timestamp dataInicio = rs.getTimestamp("data_inicio");
                 Timestamp dataFim = rs.getTimestamp("data_fim");
                 int rotaId = rs.getInt("rota_id");
-                entidade = new Tarefa_rota(id, observacao, dataInicio, dataFim, rotaId);
+                entidade = new TarefaRota(id, observacao, dataInicio, dataFim, rotaId);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -69,8 +69,8 @@ public class Tarefa_rotaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<Tarefa_rota> selectAllTarefa_rota() {
-        List<Tarefa_rota> entidades = new ArrayList<>();
+    public List<TarefaRota> selectAllTarefaRota() {
+        List<TarefaRota> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TAREFA_ROTA)) {
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -80,7 +80,7 @@ public class Tarefa_rotaDAO extends ConexaoDB {
                 Timestamp dataInicio = rs.getTimestamp("data_inicio");
                 Timestamp dataFim = rs.getTimestamp("data_fim");
                 int rotaId = rs.getInt("rota_id");
-                entidades.add(new Tarefa_rota(id, observacao, dataInicio, dataFim, rotaId));
+                entidades.add(new TarefaRota(id, observacao, dataInicio, dataFim, rotaId));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -90,7 +90,7 @@ public class Tarefa_rotaDAO extends ConexaoDB {
         return entidades;
     }
 
-    public boolean deleteTarefa_rota(int id) throws SQLException {
+    public boolean deleteTarefaRota(int id) throws SQLException {
         try (PreparedStatement statement = prepararSQL(DELETE_TAREFA_ROTA_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -99,7 +99,7 @@ public class Tarefa_rotaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTarefa_rota(Tarefa_rota entidade) throws SQLException {
+    public boolean updateTarefaRota(TarefaRota entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TAREFA_ROTA_SQL)) {
         	statement.setString(1, entidade.getObservacao());
             statement.setTimestamp(2, entidade.getDataFim());

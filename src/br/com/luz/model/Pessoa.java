@@ -24,10 +24,6 @@ public class Pessoa extends GenericModel {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cnpj=" + cnpj + ", tipoPessoaId=" + tipoPessoaId + "]";
-	}
 
 	public String getNome() {
 		return nome;
@@ -62,4 +58,9 @@ public class Pessoa extends GenericModel {
 		this.tipoPessoaId = tipoPessoaId;
 	}
 	
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cnpj=" + cnpj + ", tipoPessoaId=" + tipoPessoaId
+				+ ", getId()=" + this.getId() + "]";
+	}
 }

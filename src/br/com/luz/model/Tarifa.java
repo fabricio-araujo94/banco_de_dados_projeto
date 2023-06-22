@@ -65,5 +65,11 @@ public class Tarifa extends GenericModel {
 	public void setAliquotaICMS(String aliquotaICMS) {
 		this.aliquotaICMS = aliquotaICMS;
 	}
+
+	@Override
+	public String toString() {
+		return "Tarifa [taxa=" + taxa + ", classeId=" + classeId + ", lei=" + lei + ", dataInicio=" + dataInicio
+				+ ", dataFim=" + dataFim + ", aliquotaICMS=" + aliquotaICMS + ", getId()=" + this.getId() + "]";
+	}
 	
 }

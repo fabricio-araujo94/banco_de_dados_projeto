@@ -20,6 +20,11 @@ public class TipoPessoa extends GenericModel {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	@Override
+	public String toString() {
+		return "TipoPessoa [descricao=" + descricao + ", getId()=" + this.getId() + "]";
+	}
 	
 	
 }

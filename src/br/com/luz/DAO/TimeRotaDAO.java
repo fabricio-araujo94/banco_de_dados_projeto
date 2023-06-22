@@ -8,7 +8,7 @@ import java.util.List;
 
 import br.com.luz.model.TimeRota;
 
-public class Time_rotaDAO extends ConexaoDB {
+public class TimeRotaDAO extends ConexaoDB {
 	private static final String INSERT_TIME_ROTA_SQL = "INSERT INTO time_rota (funcionario_id, tarefa_rota_id) VALUES (?, ?;";
     private static final String SELECT_TIME_ROTA_BY_ID = "SELECT * FROM time_rota WHERE id = ?;";
     private static final String SELECT_ALL_TIME_ROTA = "SELECT * FROM time_rota;";
@@ -33,7 +33,7 @@ public class Time_rotaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTime_rota(TimeRota entidade) {
+    public void insertTimeRota(TimeRota entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIME_ROTA_SQL)) {
             preparedStatement.setInt(1, entidade.getFuncionarioId());
             preparedStatement.setInt(2, entidade.getTarefaRotaId());
@@ -45,7 +45,7 @@ public class Time_rotaDAO extends ConexaoDB {
         }
     }
 
-    public TimeRota selectTime_rota(int id) {
+    public TimeRota selectTimeRota(int id) {
         TimeRota entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIME_ROTA_BY_ID)) {
             preparedStatement.setInt(1, id);
@@ -65,7 +65,7 @@ public class Time_rotaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<TimeRota> selectAllTime_rota() {
+    public List<TimeRota> selectAllTimeRota() {
         List<TimeRota> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIME_ROTA)) {
             ResultSet rs = preparedStatement.executeQuery();
@@ -84,7 +84,7 @@ public class Time_rotaDAO extends ConexaoDB {
         return entidades;
     }
 
-    public boolean deleteTime_rota(int id) throws SQLException {
+    public boolean deleteTimeRota(int id) throws SQLException {
         try (PreparedStatement statement = prepararSQL(DELETE_TIME_ROTA_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -93,7 +93,7 @@ public class Time_rotaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTime_rota(TimeRota entidade) throws SQLException {
+    public boolean updateTimeRota(TimeRota entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIME_ROTA_SQL)) {
         	statement.setInt(1, entidade.getFuncionarioId());
             statement.setInt(2, entidade.getTarefaRotaId());

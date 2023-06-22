@@ -70,7 +70,7 @@ public class ServicoPoste extends PosteDAO {
 		try {
 			poste.updatePoste(posteId);
 		} finally {
-			System.out.println("POSTE ATUALIZADO COM SUCESSO");
+			//
 		}
 	}
 	

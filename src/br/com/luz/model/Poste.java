@@ -49,7 +49,7 @@ public class Poste extends GenericModel {
 	@Override
 	public String toString() {
 		return "Poste [latitude=" + latitude + ", longitude=" + longitude + ", codigo=" + codigo + ", observacao="
-				+ observacao + "]";
+				+ observacao + ", getId()=" + this.getId() + "]";
 	}
 	
 	

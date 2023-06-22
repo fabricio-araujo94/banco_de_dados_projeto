@@ -76,7 +76,7 @@ public class ServicoCobranca extends CobrancaDAO {
 		try {
 			cobranca.updateCobranca(cobrancaId);
 		} finally {
-			System.out.println("POSTE ATUALIZADO COM SUCESSO");
+			//
 		}
 	}
 	

@@ -68,7 +68,7 @@ public class ServicoCliente extends ClienteDAO {
 		try {
 			cliente.updateCliente(clienteId);
 		} finally {
-			System.out.println("POSTE ATUALIZADO COM SUCESSO");
+			//
 		}
 	}
 	

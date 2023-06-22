@@ -25,5 +25,11 @@ public class Funcionario extends GenericModel {
 	public void setPessoaId(int pessoaId) {
 		this.pessoaId = pessoaId;
 	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [codigoFuncional=" + codigoFuncional + ", pessoaId=" + pessoaId + ", getId()=" + this.getId()
+				+ "]";
+	}
 	
 }

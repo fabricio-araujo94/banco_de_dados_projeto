@@ -103,7 +103,7 @@ public class ServicoContrato extends ContratoDAO {
 		try {
 			contrato.updateContrato(contratoId);
 		} finally {
-			System.out.println("POSTE ATUALIZADO COM SUCESSO");
+			//
 		}
 	}
 	

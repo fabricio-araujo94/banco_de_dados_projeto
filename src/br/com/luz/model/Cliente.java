@@ -35,6 +35,12 @@ public class Cliente extends GenericModel {
 	public void setPessoaId(int pessoaId) {
 		this.pessoaId = pessoaId;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [numDocumento=" + numDocumento + ", numCliente=" + numCliente + ", pessoaId=" + pessoaId
+				+ ", getId()=" + this.getId() + "]";
+	}
 	
 	
 }

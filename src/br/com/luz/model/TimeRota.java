@@ -25,7 +25,11 @@ public class TimeRota extends GenericModel {
 	public void setTarefaRotaId(int tarefaRotaId) {
 		this.tarefaRotaId = tarefaRotaId;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "TimeRota [funcionarioId=" + funcionarioId + ", tarefaRotaId=" + tarefaRotaId + ", getId()=" + this.getId()
+				+ "]";
+	}
+		
 }
