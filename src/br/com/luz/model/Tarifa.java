@@ -1,5 +1,7 @@
 package br.com.luz.model;
 
+import br.com.luz.DAO.ClasseDAO;
+
 public class Tarifa extends GenericModel {
 	String taxa;
 	int classeId;
@@ -7,6 +9,8 @@ public class Tarifa extends GenericModel {
 	String dataInicio;
 	String dataFim;
 	String aliquotaICMS;
+	
+	ClasseDAO classe = new ClasseDAO();
 	
 	public Tarifa(Integer id, String taxa, int classeId, String lei, String dataInicio, String dataFim, String aliquotaICMS) {
 		super.setId(id);
@@ -68,7 +72,7 @@ public class Tarifa extends GenericModel {
 
 	@Override
 	public String toString() {
-		return "Tarifa [taxa=" + taxa + ", classeId=" + classeId + ", lei=" + lei + ", dataInicio=" + dataInicio
+		return "Tarifa [taxa=" + taxa + ", classe=" + classe.selectClasse(classeId) + ", lei=" + lei + ", dataInicio=" + dataInicio
 				+ ", dataFim=" + dataFim + ", aliquotaICMS=" + aliquotaICMS + ", getId()=" + this.getId() + "]";
 	}
 	

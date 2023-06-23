@@ -1,8 +1,12 @@
 package br.com.luz.model;
 
+import br.com.luz.DAO.PessoaDAO;
+
 public class Funcionario extends GenericModel {
 	String codigoFuncional;
 	int pessoaId;
+	
+	PessoaDAO pessoa = new PessoaDAO();
 	
 	public Funcionario(Integer id, String codigoFuncional, int pessoaId) {
 		super.setId(id);;
@@ -28,7 +32,7 @@ public class Funcionario extends GenericModel {
 
 	@Override
 	public String toString() {
-		return "Funcionario [codigoFuncional=" + codigoFuncional + ", pessoaId=" + pessoaId + ", getId()=" + this.getId()
+		return "Funcionario [codigoFuncional=" + codigoFuncional + ", pessoaId=" + pessoa.selectPessoa(pessoaId) + ", getId()=" + this.getId()
 				+ "]";
 	}
 	

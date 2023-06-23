@@ -1,12 +1,16 @@
 package br.com.luz.model;
 
+import br.com.luz.DAO.TipoPessoaDAO;
+
 public class Pessoa extends GenericModel {
 	String nome;
 	String cpf;
 	String cnpj;
 	int tipoPessoaId;
 	
-	public Pessoa(Integer id, String nome, String cpf, String cnpj, int tipoPessoaId) throws Exception {
+	TipoPessoaDAO tipoPessoa = new TipoPessoaDAO();
+	
+	public Pessoa(Integer id, String nome, String cpf, String cnpj, int tipoPessoaId) {
 		if (tipoPessoaId == 1 && cpf != null && !(cpf.isEmpty())) { 
 			super.setId(id);;
 			this.nome = nome;
@@ -20,7 +24,7 @@ public class Pessoa extends GenericModel {
 			this.cnpj = cnpj;
 			this.tipoPessoaId = tipoPessoaId;
 		} else {
-			throw new Exception("Atributos inválidos");
+			//
 		}
 	}
 
@@ -60,7 +64,7 @@ public class Pessoa extends GenericModel {
 	
 	@Override
 	public String toString() {
-		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cnpj=" + cnpj + ", tipoPessoaId=" + tipoPessoaId
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", cnpj=" + cnpj + ", tipoPessoa=" + tipoPessoa.selectTipo_pessoa(tipoPessoaId)
 				+ ", getId()=" + this.getId() + "]";
 	}
 }

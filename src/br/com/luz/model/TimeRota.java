@@ -1,8 +1,14 @@
 package br.com.luz.model;
 
+import br.com.luz.DAO.FuncionarioDAO;
+import br.com.luz.DAO.TarefaRotaDAO;
+
 public class TimeRota extends GenericModel {
 	int funcionarioId;
 	int tarefaRotaId;
+	
+	FuncionarioDAO funcionario = new FuncionarioDAO();
+	TarefaRotaDAO tarefaRota = new TarefaRotaDAO();
 	
 	public TimeRota(Integer id, int funcionarioId, int tarefaRotaId) {
 		super.setId(id);
@@ -28,7 +34,7 @@ public class TimeRota extends GenericModel {
 
 	@Override
 	public String toString() {
-		return "TimeRota [funcionarioId=" + funcionarioId + ", tarefaRotaId=" + tarefaRotaId + ", getId()=" + this.getId()
+		return "TimeRota [funcionario=" + funcionario.selectFuncionario(funcionarioId) + ", tarefaRota=" + tarefaRota.selectTarefaRota(tarefaRotaId) + ", getId()=" + this.getId()
 				+ "]";
 	}
 		

@@ -2,12 +2,15 @@ package br.com.luz.model;
 
 import java.sql.Timestamp;
 
+import br.com.luz.DAO.RotaDAO;
+
 public class TarefaRota extends GenericModel {
 	String observacao;
 	Timestamp dataInicio;
 	Timestamp dataFim;
 	int rotaId;
 	
+	RotaDAO rota = new RotaDAO();
 	
 	public TarefaRota(Integer id, String observacao, Timestamp dataInicio, Timestamp dataFim, int rotaId) {
 		super.setId(id);
@@ -61,7 +64,7 @@ public class TarefaRota extends GenericModel {
 	@Override
 	public String toString() {
 		return "TarefaRota [observacao=" + observacao + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim
-				+ ", rotaId=" + rotaId + ", getId()=" + this.getId() + "]";
+				+ ", rota=" + rota.selectRota(rotaId) + ", getId()=" + this.getId() + "]";
 	}
 
 	

@@ -2,6 +2,10 @@ package br.com.luz.model;
 
 import java.sql.Timestamp;
 
+import br.com.luz.DAO.MedidorDAO;
+import br.com.luz.DAO.ClasseDAO;
+import br.com.luz.DAO.ClienteDAO;
+
 public class Contrato extends GenericModel {
 	String descricao;
 	Timestamp dataInicio;
@@ -9,6 +13,10 @@ public class Contrato extends GenericModel {
 	int medidorId;
 	int classeId;
 	int clienteId;
+	
+	MedidorDAO medidor = new MedidorDAO();
+	ClasseDAO classe = new ClasseDAO();
+	ClienteDAO cliente = new ClienteDAO();
 	
 	public Contrato(Integer id, String descricao, Timestamp dataInicio, Timestamp dataCriacao, int medidorId, int classeId,
 			int clienteId) {
@@ -72,7 +80,7 @@ public class Contrato extends GenericModel {
 	@Override
 	public String toString() {
 		return "Contrato [descricao=" + descricao + ", dataInicio=" + dataInicio + ", dataCriacao=" + dataCriacao
-				+ ", medidorId=" + medidorId + ", classeId=" + classeId + ", clienteId=" + clienteId + ", getId()="
+				+ ", medidorId=" + medidor.selectMedidor(medidorId) + ", classeId=" + classe.selectClasse(classeId) + ", clienteId=" + cliente.selectCliente(clienteId) + ", getId()="
 				+ this.getId() + "]";
 	}
 

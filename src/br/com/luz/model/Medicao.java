@@ -2,6 +2,9 @@ package br.com.luz.model;
 
 import java.sql.Timestamp;
 
+import br.com.luz.DAO.MedidorDAO;
+import br.com.luz.DAO.TimeRotaDAO;
+
 public class Medicao extends GenericModel {
 	String mes;
 	String ano;
@@ -9,6 +12,9 @@ public class Medicao extends GenericModel {
 	String consumo;
 	int medidorId;
 	int timeRotaId;
+	
+	MedidorDAO medidor = new MedidorDAO();
+	TimeRotaDAO timeRota = new TimeRotaDAO();
 	
 	public Medicao(Integer id, String mes, String ano, Timestamp dataMedicao, String consumo, int medidorId, 
 			int timeRotaId) {
@@ -72,7 +78,7 @@ public class Medicao extends GenericModel {
 	@Override
 	public String toString() {
 		return "Medicao [mes=" + mes + ", ano=" + ano + ", dataMedicao=" + dataMedicao + ", consumo=" + consumo
-				+ ", medidorId=" + medidorId + ", timeRotaId=" + timeRotaId + ", getId()=" + this.getId() + "]";
+				+ ", medidor=" + medidor.selectMedidor(medidorId) + ", timeRota=" + timeRota.selectTimeRota(timeRotaId) + ", getId()=" + this.getId() + "]";
 	}
 	
 }

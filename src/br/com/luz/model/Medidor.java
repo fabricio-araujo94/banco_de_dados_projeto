@@ -1,9 +1,15 @@
 package br.com.luz.model;
 
+import br.com.luz.DAO.RotaDAO;
+import br.com.luz.DAO.PosteDAO;
+
 public class Medidor extends GenericModel {
 	String descricao;
 	int rotaId;
 	int posteId;
+	
+	RotaDAO rota = new RotaDAO();
+	PosteDAO poste = new PosteDAO();
 	
 	public Medidor(Integer id, String descricao, int rotaId, int posteId) {
 		super.setId(id);
@@ -38,7 +44,7 @@ public class Medidor extends GenericModel {
 
 	@Override
 	public String toString() {
-		return "Medidor [descricao=" + descricao + ", rotaId=" + rotaId + ", posteId=" + posteId + ", getId()="
+		return "Medidor [descricao=" + descricao + ", rota=" + rota.selectRota(rotaId) + ", poste=" + poste.selectPoste(posteId) + ", getId()="
 				+ this.getId() + "]";
 	}
 	
