@@ -9,7 +9,7 @@ import java.util.List;
 import br.com.luz.model.TimeRota;
 
 public class TimeRotaDAO extends ConexaoDB {
-	private static final String INSERT_TIME_ROTA_SQL = "INSERT INTO time_rota (funcionario_id, tarefa_rota_id) VALUES (?, ?;";
+	private static final String INSERT_TIME_ROTA_SQL = "INSERT INTO time_rota (funcionario_id, tarefa_rota_id) VALUES (?, ?);";
     private static final String SELECT_TIME_ROTA_BY_ID = "SELECT * FROM time_rota WHERE id = ?;";
     private static final String SELECT_ALL_TIME_ROTA = "SELECT * FROM time_rota;";
     private static final String DELETE_TIME_ROTA_SQL = "DELETE FROM time_rota WHERE id = ?;";

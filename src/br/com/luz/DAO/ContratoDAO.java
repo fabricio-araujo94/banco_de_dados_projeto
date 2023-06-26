@@ -10,11 +10,11 @@ import java.sql.Timestamp;
 import br.com.luz.model.Contrato;
 
 public class ContratoDAO extends ConexaoDB {
-	private static final String INSERT_CONTRATO_SQL = "INSERT INTO contrato (descricao, medidor_id, data_criacao, medidor_id, classe_id, cliente_id) VALUES (?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_CONTRATO_SQL = "INSERT INTO contrato (descricao, data_inicio, data_criacao, medidor_id, classe_id, cliente_id) VALUES (?, ?, ?, ?, ?, ?);";
     private static final String SELECT_CONTRATO_BY_ID = "SELECT * FROM contrato WHERE id = ?;";
     private static final String SELECT_ALL_CONTRATO = "SELECT * FROM contrato;";
     private static final String DELETE_CONTRATO_SQL = "DELETE FROM contrato WHERE id = ?;";
-    private static final String UPDATE_CONTRATO_SQL = "UPDATE contrato SET descricao = ?, medidor_id = ?, data_criacao = ?, medidor_id = ?, classe_id = ?, cliente_id = ? WHERE id = ?;";
+    private static final String UPDATE_CONTRATO_SQL = "UPDATE contrato SET descricao = ?, data_inicio = ?, data_criacao = ?, medidor_id = ?, classe_id = ?, cliente_id = ? WHERE id = ?;";
     private static final String TOTAL = "SELECT count(1) FROM contrato;";
 
 
@@ -42,7 +42,6 @@ public class ContratoDAO extends ConexaoDB {
             preparedStatement.setInt(4, entidade.getMedidorId());
             preparedStatement.setInt(5, entidade.getClasseId());
             preparedStatement.setInt(6, entidade.getClienteId());
-            preparedStatement.setInt(7, entidade.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);

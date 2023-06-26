@@ -1,23 +1,28 @@
 package br.com.luz.util;
 
-import br.com.luz.servico.ServicoPoste;
-
-import br.com.luz.model.Pessoa;
-
+import java.sql.Timestamp;
 import java.sql.SQLException;
 import java.util.List;
 
 import com.google.gson.Gson;
 
-import br.com.luz.DAO.PosteDAO;
-import br.com.luz.model.Poste;
+import br.com.luz.DAO.*;
+import br.com.luz.model.*;
+import br.com.luz.servico.*;
 
 public class Teste {
-	static PosteDAO marcaDAO = new PosteDAO();
 
     public static void main(String[] args) throws SQLException, Exception {
+    	
+    	
+    	
+    	
+    	ServicoContaDeLuz contaS = new ServicoContaDeLuz();
+    	
+    	ContaDeLuz conta = contaS.gerarContaDeLuz(1);
+    	
+    	System.out.println(conta);
 
-    	ServicoPoste.inserirPoste();
     	
     	
     	

@@ -32,7 +32,7 @@ public class TipoPessoaDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipo_pessoa(TipoPessoa entidade) {
+    public void insertTipoPessoa(TipoPessoa entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_PESSOA_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
@@ -43,7 +43,7 @@ public class TipoPessoaDAO extends ConexaoDB {
         }
     }
 
-    public TipoPessoa selectTipo_pessoa(int id) {
+    public TipoPessoa selectTipoPessoa(int id) {
         TipoPessoa entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_PESSOA_BY_ID)) {
             preparedStatement.setInt(1, id);
@@ -61,7 +61,7 @@ public class TipoPessoaDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<TipoPessoa> selectAllTipo_pessoa() {
+    public List<TipoPessoa> selectAllTipoPessoa() {
         List<TipoPessoa> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_PESSOA)) {
             ResultSet rs = preparedStatement.executeQuery();
@@ -79,7 +79,7 @@ public class TipoPessoaDAO extends ConexaoDB {
         return entidades;
     }
 
-    public boolean deleteTipo_pessoa(int id) throws SQLException {
+    public boolean deleteTipoPessoa(int id) throws SQLException {
         try (PreparedStatement statement = prepararSQL(DELETE_TIPO_PESSOA_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -88,7 +88,7 @@ public class TipoPessoaDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTipo_pessoa(TipoPessoa entidade) throws SQLException {
+    public boolean updateTipoPessoa(TipoPessoa entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_PESSOA_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());

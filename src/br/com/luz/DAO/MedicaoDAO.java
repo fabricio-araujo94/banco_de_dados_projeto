@@ -39,9 +39,9 @@ public class MedicaoDAO extends ConexaoDB {
             preparedStatement.setString(1, entidade.getMes());
             preparedStatement.setString(2, entidade.getAno());
             preparedStatement.setTimestamp(3, entidade.getDataMedicao());
-            preparedStatement.setString(5, entidade.getConsumo());
-            preparedStatement.setInt(6, entidade.getMedidorId());
-            preparedStatement.setInt(7, entidade.getTimeRotaId());
+            preparedStatement.setString(4, entidade.getConsumo());
+            preparedStatement.setInt(5, entidade.getMedidorId());
+            preparedStatement.setInt(6, entidade.getTimeRotaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -110,10 +110,10 @@ public class MedicaoDAO extends ConexaoDB {
         	statement.setString(1, entidade.getMes());
             statement.setString(2, entidade.getAno());
             statement.setTimestamp(3, entidade.getDataMedicao());
-            statement.setString(5, entidade.getConsumo());
-            statement.setInt(6, entidade.getMedidorId());
-            statement.setInt(7, entidade.getTimeRotaId());
-            statement.setInt(8, entidade.getId());
+            statement.setString(4, entidade.getConsumo());
+            statement.setInt(5, entidade.getMedidorId());
+            statement.setInt(6, entidade.getTimeRotaId());
+            statement.setInt(7, entidade.getId());
 
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {

@@ -32,7 +32,7 @@ public class TipoFaseDAO extends ConexaoDB {
         return count;
     }
 
-    public void insertTipo_fase(TipoFase entidade) {
+    public void insertTipoFase(TipoFase entidade) {
         try (PreparedStatement preparedStatement = prepararSQL(INSERT_TIPO_FASE_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
             preparedStatement.executeUpdate();
@@ -43,7 +43,7 @@ public class TipoFaseDAO extends ConexaoDB {
         }
     }
 
-    public TipoFase selectTipo_fase(int id) {
+    public TipoFase selectTipoFase(int id) {
         TipoFase entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_TIPO_FASE_BY_ID)) {
             preparedStatement.setInt(1, id);
@@ -61,7 +61,7 @@ public class TipoFaseDAO extends ConexaoDB {
         return entidade;
     }
 
-    public List<TipoFase> selectAllTipo_fase() {
+    public List<TipoFase> selectAllTipoFase() {
         List<TipoFase> entidades = new ArrayList<>();
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_ALL_TIPO_FASE)) {
             ResultSet rs = preparedStatement.executeQuery();
@@ -79,7 +79,7 @@ public class TipoFaseDAO extends ConexaoDB {
         return entidades;
     }
 
-    public boolean deleteTipo_fase(int id) throws SQLException {
+    public boolean deleteTipoFase(int id) throws SQLException {
         try (PreparedStatement statement = prepararSQL(DELETE_TIPO_FASE_SQL)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -88,7 +88,7 @@ public class TipoFaseDAO extends ConexaoDB {
         }
     }
 
-    public boolean updateTipo_fase(TipoFase entidade) throws SQLException {
+    public boolean updateTipoFase(TipoFase entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_TIPO_FASE_SQL)) {
             statement.setString(1, entidade.getDescricao());
             statement.setInt(2, entidade.getId());
