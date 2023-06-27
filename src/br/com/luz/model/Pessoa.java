@@ -11,21 +11,11 @@ public class Pessoa extends GenericModel {
 	TipoPessoaDAO tipoPessoa = new TipoPessoaDAO();
 	
 	public Pessoa(Integer id, String nome, String cpf, String cnpj, int tipoPessoaId) {
-		if (tipoPessoaId == 1 && cpf != null && !(cpf.isEmpty())) { 
-			super.setId(id);;
-			this.nome = nome;
-			this.cpf = cpf;
-			this.cnpj = null;
-			this.tipoPessoaId = tipoPessoaId;
-		} else if (tipoPessoaId == 2 && cnpj != null && !(cnpj.isEmpty())){
-			super.setId(id);;
-			this.nome = nome;
-			this.cpf = null;
-			this.cnpj = cnpj;
-			this.tipoPessoaId = tipoPessoaId;
-		} else {
-			//
-		}
+		super.setId(id);;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cnpj = cnpj;
+		this.tipoPessoaId = tipoPessoaId;
 	}
 
 

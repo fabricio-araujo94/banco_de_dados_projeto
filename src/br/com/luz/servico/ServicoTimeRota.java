@@ -1,7 +1,6 @@
 package br.com.luz.servico;
 
 import java.util.Scanner;
-import java.util.Date;
 import java.sql.SQLException;
 
 import br.com.luz.DAO.TimeRotaDAO;

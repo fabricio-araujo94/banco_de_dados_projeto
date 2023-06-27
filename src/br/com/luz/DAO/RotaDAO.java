@@ -92,7 +92,7 @@ public class RotaDAO extends ConexaoDB {
     public boolean updateRota(Rota entidade) throws SQLException {
         try (PreparedStatement statement = prepararSQL(UPDATE_ROTA_SQL)) {
             statement.setString(1, entidade.getDescricao());
-            statement.setInt(3, entidade.getId());
+            statement.setInt(2, entidade.getId());
 
             return statement.executeUpdate() > 0;
         } catch (ClassNotFoundException e) {

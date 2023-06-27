@@ -1,11 +1,12 @@
 package br.com.luz.model;
 
 import br.com.luz.DAO.TipoFaseDAO;
-import br.com.luz.model.TipoFase;
 
 public class Classe extends GenericModel {
 	String descricao;
 	int tipoFaseId;
+	
+	TipoFaseDAO tipoFase = new TipoFaseDAO();
 	
 	public Classe(Integer id, String descricao, int tipoFaseId) {
 		super.setId(id);;
@@ -31,7 +32,7 @@ public class Classe extends GenericModel {
 
 	@Override
 	public String toString() {
-		return "Classe [descricao=" + descricao + ", tipoFase=" + tipoFaseId + ", getId()=" + this.getId() + "]";
+		return "Classe [descricao=" + descricao + ", tipoFase=" + tipoFase.selectTipoFase(tipoFaseId) + ", getId()=" + this.getId() + "]";
 	}
 
 

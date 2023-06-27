@@ -32,12 +32,15 @@ public class ServicoContaDeLuz extends ConexaoDB {
 			+ "ON cobranca.medicao_id = medicao.id "
 			+ "INNER JOIN tarifa "
 			+ "ON cobranca.tarifa_id = tarifa.id "
-			+ "WHERE contrato.id = ?;";
+			+ "WHERE (contrato.id = ? AND cobranca.mes_referencia = ? AND cobranca.ano_referencia = ?)"
+			+ "LIMIT 1";
 	
-	public ContaDeLuz gerarContaDeLuz(int id) {
+	public ContaDeLuz gerarContaDeLuz(int id, String mes, String ano) {
         ContaDeLuz entidade = null;
         try (PreparedStatement preparedStatement = prepararSQL(SELECT_DADOS)) {
             preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, mes);
+            preparedStatement.setString(3, ano);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
